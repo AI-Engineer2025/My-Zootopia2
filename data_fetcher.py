@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 API_KEY = os.getenv("API_KEY")
+URL = "https://api.api-ninjas.com/v1/animals?name="
+headers = {"X-Api-Key": API_KEY}
 
 
 def fetch_data(animal_name: str):
@@ -21,9 +23,8 @@ def fetch_data(animal_name: str):
     If no animal is found, returns a list with one dict:
     [{"error": "<h2>The animal {animal_name} doesn't exist.</h2>"}]
     """
-    url = f"https://api.api-ninjas.com/v1/animals?name={animal_name}"
-    headers = {"X-Api-Key": API_KEY}
-    response = requests.get(url, headers=headers)
+
+    response = requests.get(URL + animal_name, headers=headers)
 
     try:
         animals_data = response.json()
