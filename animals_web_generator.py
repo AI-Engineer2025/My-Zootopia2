@@ -5,15 +5,12 @@ OUTPUT_FILE_NAME = "animals.html"
 
 def serialize_animal(animal: dict) -> str:
     """
-    Serializes an animal. Fields are omitted from the output
-    if they don't exist in the input dictionary.
-
-    Args:
-        animal (dict): Animal data dictionary.
-
-    Returns:
-        str: HTML list item for the animal.
+    Serializes an animal into HTML.
+    If the dict contains 'error', returns the error HTML directly.
     """
+    if "error" in animal:
+        return animal["error"] + "\n"
+
     output = '<li class="cards__item">\n'
 
     if "name" in animal:
@@ -49,7 +46,7 @@ def main():
 
     filled_content = template_content.replace("__REPLACE_ANIMALS_INFO__", output)
 
-    with open("animals.html", "w", encoding="utf-8") as output_file:
+    with open(OUTPUT_FILE_NAME, "w", encoding="utf-8") as output_file:
         output_file.write(filled_content)
 
 
