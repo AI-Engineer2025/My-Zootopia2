@@ -1,4 +1,4 @@
+request
 python-dotenv
-requests
-numpy
-
+data_fetcher
+json
