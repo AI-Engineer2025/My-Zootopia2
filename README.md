@@ -83,4 +83,6 @@ Committe deine Änderungen (git commit -m "Add neues-feature")
 
 Push und Pull Request erstellen
 
+Übungsprojekt AI Studium 2025: Tierinfos über API Ninjas als HTML-Seite ausgeben (Python, requests, dotenv)
+
 ```html
